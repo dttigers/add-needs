@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 4 of 5 (Polish & Delight)
-Plan: 04-01 — NOT STARTED
-Status: Phase 3 complete (human verification approved); ready to begin Phase 4
-Last activity: 2026-03-17 — Plan 03-02 fully complete; Phase 3 DONE
+Plan: 04-01 — CHECKPOINT (awaiting human verify)
+Status: Tasks 1-2 complete; stopped at Task 3 checkpoint:human-verify
+Last activity: 2026-03-17 — Plan 04-01 Tasks 1+2 committed; human verify pending
 
 Progress: ██████████ 100% (Phase 3) → starting Phase 4
 
@@ -55,10 +55,11 @@ Recent decisions affecting current work:
 - **Hooks before guards:** All React hooks must be called before any conditional early-return to respect Rules of Hooks
 - **ListRenderItem typed renderItem:** Use `ListRenderItem<T>` type for FlatList renderItem to avoid inline `any` under strict TS
 - **Absolute overlay for secondary nav:** Secondary navigation links (e.g., "History") use `position: absolute` to avoid disrupting existing layout flow
+- **DimensionValue cast for bar fills:** Template-literal percentage strings (`\`${n}%\``) must be typed/cast as `DimensionValue` under strict TypeScript in React Native
 
 ### Pending Todos
 
-None — Phase 3 complete. Begin Phase 4 planning.
+- Human verify Stats screen (04-01 Task 3 checkpoint) then mark plan complete
 
 ### Blockers/Concerns
 
@@ -67,6 +68,6 @@ None — Phase 3 complete. Begin Phase 4 planning.
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 03-02 complete (Task 3 human-verify approved)
-Resume file: .planning/phases/03-feedback-persistence/03-02-SUMMARY.md
-Next: Begin Phase 4 — Polish & Delight (04-01)
+Stopped at: Plan 04-01 Task 3 checkpoint:human-verify (Stats screen visual verification)
+Resume file: .planning/phases/04-pattern-learning/04-01-SUMMARY.md
+Next: User approves Stats screen → mark 04-01 complete → begin next plan
