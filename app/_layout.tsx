@@ -6,6 +6,7 @@ export default function RootLayout() {
       <Stack.Screen name="index" />
       <Stack.Screen name="result" />
       <Stack.Screen name="history" />
+      <Stack.Screen name="stats" />
     </Stack>
   );
 }
