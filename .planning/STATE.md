@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 2 of 5 (Craving Input & Navigation)
-Plan: 02-02 — not started
-Status: Plan 02-01 complete; craving data layer and selection screen built
-Last activity: 2026-03-17 — Plan 02-01 executed and committed (2 tasks, 0 errors)
+Plan: 02-02 — checkpoint (human verification)
+Status: Result screen built (Task 1 committed); awaiting human verification of full end-to-end flow
+Last activity: 2026-03-17 — Plan 02-02 Task 1 executed and committed (558cdd5)
 
-Progress: █████░░░░░ ~40%
+Progress: ███████░░░ ~60%
 
 ## Performance Metrics
 
@@ -28,10 +28,10 @@ Progress: █████░░░░░ ~40%
 | Phase | Plans | Total | Avg/Plan | Status |
 |-------|-------|-------|----------|--------|
 | 01-foundation | 2 | 35 min | ~18 min | COMPLETE |
-| 02-core-redirect-flow | 1 | 10 min | ~10 min | IN PROGRESS |
+| 02-core-redirect-flow | 2 | ~25 min | ~13 min | IN PROGRESS (checkpoint) |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min)
+- Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min), 02-02 (~15 min)
 - Trend: consistent
 
 ## Accumulated Context
@@ -51,7 +51,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- None — Plan 02-01 complete; ready for Plan 02-02 (result screen)
+- Human verification of full craving → result → Done flow (Plan 02-02 checkpoint)
 
 ### Blockers/Concerns
 
@@ -60,6 +60,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 02-01 complete — craving data layer and selection grid built, TypeScript clean
-Resume file: .planning/phases/02-core-redirect-flow/02-01-SUMMARY.md
-Next: Plan 02-02 — result screen (reads cravingId param, displays need + 2 suggestions)
+Stopped at: Plan 02-02 checkpoint — result screen built and committed; awaiting human verification
+Resume file: .planning/phases/02-core-redirect-flow/02-02-SUMMARY.md
+Next: Human verify full end-to-end flow, then Plan 02-02 complete → Phase 3
