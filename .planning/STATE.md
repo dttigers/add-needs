@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 5 of 5 (Customization & Polish)
-Plan: 05-01 — COMPLETE
-Status: All 2 tasks complete; custom mappings storage wired into home + result screens
-Last activity: 2026-03-17 — Plan 05-01 complete; custom_mappings SQLite table + CRUD + home/result integration
+Plan: 05-02 — CHECKPOINT (human-verify pending)
+Status: Tasks 1+2 complete (manage.tsx + add-mapping.tsx built, TypeScript clean); awaiting human verification of CRUD flow
+Last activity: 2026-03-17 — Plan 05-02 tasks done; CRUD UI screens created; checkpoint:human-verify blocking
 
 Progress: ██████████ 100% (Phase 4) → Phase 5 in progress (05-01 done)
 
@@ -59,10 +59,12 @@ Recent decisions affecting current work:
 - **Balanced absolute nav:** History at `left: 24`, Stats at `right: 24` — mirrors left/right for visual symmetry on home screen
 - **Custom mapping id as string:** Custom craving IDs stored/compared as `String(m.id)` to match expo-router string params
 - **`as never` cast for future routes:** Use `router.push('/manage' as never)` when screen file not yet created; cast resolves naturally once file exists
+- **useFocusEffect for manage screen:** Use useFocusEffect (not useEffect) to re-fetch custom mappings on every screen visit — ensures list is fresh after returning from add-mapping
+- **Single screen for add + edit:** add-mapping.tsx handles both modes via presence of `id` param; pre-fills from route params in edit mode
 
 ### Pending Todos
 
-- Begin next plan in Phase 5 (05-02: Manage screen)
+- Human verify 05-02 CRUD flow (checkpoint:human-verify blocking), then phase 05 complete
 
 ### Blockers/Concerns
 
@@ -71,6 +73,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 05-01 complete (all 2 tasks done, no checkpoint required)
-Resume file: .planning/phases/05-customization-polish/05-01-SUMMARY.md
-Next: Begin plan 05-02 (Manage screen)
+Stopped at: Plan 05-02 — checkpoint:human-verify (Task 3 of 3) — awaiting user approval of CRUD flow
+Resume file: .planning/phases/05-customization-polish/05-02-SUMMARY.md
+Next: User approves checkpoint → phase 05 complete
