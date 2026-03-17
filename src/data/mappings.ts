@@ -22,6 +22,7 @@ export const CRAVINGS: CravingItem[] = [
   { id: 'restless', label: 'Restlessness', emoji: '🦶' },
   { id: 'binging', label: 'Binge-watching', emoji: '📺' },
   { id: 'impulse-chat', label: 'Impulsive texting', emoji: '💬' },
+  { id: 'thc', label: 'Weed / THC', emoji: '🌿' },
 ];
 
 export const MAPPINGS: Record<string, NeedResult> = {
@@ -37,4 +38,5 @@ export const MAPPINGS: Record<string, NeedResult> = {
   restless: { need: 'Movement or sensory input', suggestions: ['Go for a 5-min walk', 'Do 10 jumping jacks'] },
   binging: { need: 'Rest or emotional escape', suggestions: ['Take a real 20-min nap', "Write down what you're avoiding"] },
   'impulse-chat': { need: 'Connection or validation', suggestions: ['Write what you want to say and wait 10 min', 'Call one person intentionally'] },
+  thc: { need: 'Anxiety relief or boredom', suggestions: ['Try 4-7-8 breathing for 2 minutes', 'Go outside and change your environment'] },
 };
