@@ -10,10 +10,10 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Core Redirect Flow
 
 - [x] **FLOW-01**: User can launch app and reach craving input in under 2 seconds with zero setup on first use
-- [ ] **FLOW-02**: User can select a craving from a tap-based list of ~10-15 common ADHD cravings without typing
-- [ ] **FLOW-03**: App translates selected craving to an underlying need using default mappings (~20-30 common patterns)
-- [ ] **FLOW-04**: User sees the identified real need with 1-2 concrete actionable suggestions
-- [ ] **FLOW-05**: Full interaction (open → craving → need → done) completes in under 10 seconds
+- [x] **FLOW-02**: User can select a craving from a tap-based list of ~10-15 common ADHD cravings without typing
+- [x] **FLOW-03**: App translates selected craving to an underlying need using default mappings (~20-30 common patterns)
+- [x] **FLOW-04**: User sees the identified real need with 1-2 concrete actionable suggestions
+- [x] **FLOW-05**: Full interaction (open → craving → need → done) completes in under 10 seconds
 - [ ] **FLOW-06**: After seeing result, user can give one-tap feedback ("did that help?" yes/no/skip)
 - [ ] **FLOW-07**: User can add custom craving-to-need mappings
 - [ ] **FLOW-08**: User can edit existing craving-to-need mappings
@@ -29,7 +29,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Onboarding & UX
 
-- [ ] **UX-01**: First-time user understands the concept (craving ≠ real need) through minimal inline guidance without blocking first use
+- [x] **UX-01**: First-time user understands the concept (craving ≠ real need) through minimal inline guidance without blocking first use
 - [ ] **UX-02**: App supports dark mode via system theme detection
 
 ## v2 Requirements
