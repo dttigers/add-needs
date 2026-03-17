@@ -1,8 +1,16 @@
 import { View, Text, FlatList, TouchableOpacity, StatusBar, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { CRAVINGS, CravingItem } from '../src/data/mappings';
+import { getCustomMappings } from '../src/storage/customMappings';
 
 export default function HomeScreen() {
+  const customCravings: CravingItem[] = getCustomMappings().map(m => ({
+    id: String(m.id),
+    label: m.label,
+    emoji: m.emoji,
+  }));
+  const allCravings = [...CRAVINGS, ...customCravings];
+
   const renderItem = ({ item }: { item: CravingItem }) => (
     <TouchableOpacity
       style={styles.tile}
@@ -31,8 +39,14 @@ export default function HomeScreen() {
       <StatusBar hidden />
       <Text style={styles.headline}>What are you{'\n'}craving?</Text>
       <Text style={styles.subtitle}>Tap one — we'll find the real need behind it</Text>
+      <TouchableOpacity
+        onPress={() => router.push('/manage' as never)}
+        style={{ position: 'absolute', bottom: 32, right: 24, zIndex: 10 }}
+      >
+        <Text style={{ color: '#444444', fontSize: 13 }}>Manage</Text>
+      </TouchableOpacity>
       <FlatList
-        data={CRAVINGS}
+        data={allCravings}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={2}

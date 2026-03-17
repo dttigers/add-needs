@@ -7,6 +7,8 @@ export default function RootLayout() {
       <Stack.Screen name="result" />
       <Stack.Screen name="history" />
       <Stack.Screen name="stats" />
+      <Stack.Screen name="manage" />
+      <Stack.Screen name="add-mapping" />
     </Stack>
   );
 }

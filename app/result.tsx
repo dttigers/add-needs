@@ -3,12 +3,24 @@ import { View, Text, TouchableOpacity, StatusBar, ScrollView } from 'react-nativ
 import { useLocalSearchParams, router } from 'expo-router';
 import { CRAVINGS, MAPPINGS } from '../src/data/mappings';
 import { logEvent, setFeedback } from '../src/storage/events';
+import { getCustomMappings } from '../src/storage/customMappings';
 
 export default function ResultScreen() {
   const { cravingId } = useLocalSearchParams<{ cravingId: string }>();
 
-  const craving = CRAVINGS.find(c => c.id === cravingId);
-  const result = cravingId ? MAPPINGS[cravingId] : undefined;
+  const customMappings = getCustomMappings();
+  const customMapping = customMappings.find(m => String(m.id) === cravingId);
+  const craving =
+    CRAVINGS.find(c => c.id === cravingId) ??
+    (customMapping
+      ? { id: String(customMapping.id), label: customMapping.label, emoji: customMapping.emoji }
+      : undefined);
+  const result = cravingId
+    ? (MAPPINGS[cravingId] ??
+       (customMapping
+         ? { need: customMapping.need, suggestions: [customMapping.suggestion1, customMapping.suggestion2] as [string, string] }
+         : undefined))
+    : undefined;
 
   const [eventId, setEventId] = useState<number | null>(null);
 
