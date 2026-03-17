@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 
 ## Current Position
 
-Phase: 2 of 5 (Craving Input & Navigation)
-Plan: 02-02 — COMPLETE
-Status: Full craving → need flow built and human-verified; THC craving added at user request; Phase 2 complete
-Last activity: 2026-03-17 — Plan 02-02 complete (62aab7f — THC craving addition)
+Phase: 3 of 5 (Feedback & Persistence)
+Plan: 03-01 — COMPLETE
+Status: SQLite redirect_events table live; result screen logs each visit and captures yes/no/skip feedback
+Last activity: 2026-03-17 — Plan 03-01 complete (a1c106b — feedback UI on result screen)
 
-Progress: ████████░░ ~80%
+Progress: █████████░ ~90%
 
 ## Performance Metrics
 
@@ -29,9 +29,10 @@ Progress: ████████░░ ~80%
 |-------|-------|-------|----------|--------|
 | 01-foundation | 2 | 35 min | ~18 min | COMPLETE |
 | 02-core-redirect-flow | 2 | ~30 min | ~15 min | COMPLETE |
+| 03-feedback-persistence | 1 | ~10 min | ~10 min | IN PROGRESS |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min), 02-02 (~15 min)
+- Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min), 02-02 (~15 min), 03-01 (~10 min)
 - Trend: consistent
 
 ## Accumulated Context
@@ -49,10 +50,13 @@ Recent decisions affecting current work:
 - **Zero async on mount:** Home screen renders synchronously; no loading states or data fetches at launch
 - **Storage schemas deferred:** src/storage/ wires connections only; table/key definitions are Phase 3's job
 - **THC craving (13th entry):** Added post-verification at user request; maps to "Anxiety relief or boredom" with 4-7-8 breathing + environment change suggestions
+- **Module-level SQLite table init:** Place `db.runSync(CREATE TABLE IF NOT EXISTS ...)` at module top — no explicit setup call needed
+- **Sync SQLite only:** Use `db.runSync` / `db.getAllSync` throughout storage layer — no async/await
+- **Hooks before guards:** All React hooks must be called before any conditional early-return to respect Rules of Hooks
 
 ### Pending Todos
 
-None — Phase 2 complete.
+None — Phase 3 plan 01 complete.
 
 ### Blockers/Concerns
 
@@ -61,6 +65,6 @@ None — Phase 2 complete.
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 02-02 complete — full craving-to-need flow built, verified, THC craving added
-Resume file: .planning/phases/02-core-redirect-flow/02-02-SUMMARY.md
-Next: Phase 3 — history/persistence (log each craving → need lookup for later review)
+Stopped at: Plan 03-01 complete — SQLite redirect_events table + yes/no/skip feedback UI on result screen
+Resume file: .planning/phases/03-feedback-persistence/03-01-SUMMARY.md
+Next: Phase 3 plan 02 (or Phase 4) — history screen reading getHistory() to display past redirects
