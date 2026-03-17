@@ -5,32 +5,32 @@
 See: .planning/PROJECT.md (updated 2026-03-17)
 
 **Core value:** In-the-moment clarity — translate misdirected ADHD cravings into the real underlying need, fast enough to act on before the impulse wins.
-**Current focus:** Phase 1 — Foundation & App Shell
+**Current focus:** Phase 2 — Craving Input & Navigation
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation & App Shell)
-Plan: 01-02 — awaiting human verification checkpoint
-Status: Tasks 1 & 2 complete; paused at checkpoint:human-verify (launch speed + visual design)
-Last activity: 2026-03-17 — Storage layer + home screen shell built
+Phase: 2 of 5 (Craving Input & Navigation)
+Plan: 02-01 — not started
+Status: Phase 1 complete (both plans approved); ready to begin Phase 2
+Last activity: 2026-03-17 — Plan 01-02 human verification approved; Phase 1 complete
 
-Progress: ███░░░░░░░ ~20%
+Progress: ████░░░░░░ ~30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1 (01-01 fully approved); 01-02 automated tasks done, checkpoint pending
+- Total plans completed: 2 (01-01, 01-02 — both fully approved)
 - Average duration: ~18 min
 - Total execution time: ~0.6 hours
 
 **By Phase:**
 
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01-foundation | 1.5 | 35 min | ~18 min |
+| Phase | Plans | Total | Avg/Plan | Status |
+|-------|-------|-------|----------|--------|
+| 01-foundation | 2 | 35 min | ~18 min | COMPLETE |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (15 min), 01-02 (20 min automated)
+- Last 5 plans: 01-01 (15 min), 01-02 (20 min)
 - Trend: consistent
 
 ## Accumulated Context
@@ -50,7 +50,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- Human verification of home screen: launch speed under 2s, visual design, button navigation
+- None — Phase 1 complete, awaiting Phase 2 plan creation
 
 ### Blockers/Concerns
 
@@ -59,5 +59,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 01-02 — checkpoint:human-verify (storage layer + home screen shell built, awaiting visual approval)
+Stopped at: Phase 1 complete — human verified plan 01-02 (launch speed, visual design, navigation)
 Resume file: .planning/phases/01-foundation/01-02-SUMMARY.md
+Next: Begin Phase 2 — Craving Input & Navigation
