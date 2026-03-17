@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 2 of 5 (Craving Input & Navigation)
-Plan: 02-01 — not started
-Status: Phase 1 complete (both plans approved); ready to begin Phase 2
-Last activity: 2026-03-17 — Plan 01-02 human verification approved; Phase 1 complete
+Plan: 02-02 — not started
+Status: Plan 02-01 complete; craving data layer and selection screen built
+Last activity: 2026-03-17 — Plan 02-01 executed and committed (2 tasks, 0 errors)
 
-Progress: ████░░░░░░ ~30%
+Progress: █████░░░░░ ~40%
 
 ## Performance Metrics
 
@@ -28,9 +28,10 @@ Progress: ████░░░░░░ ~30%
 | Phase | Plans | Total | Avg/Plan | Status |
 |-------|-------|-------|----------|--------|
 | 01-foundation | 2 | 35 min | ~18 min | COMPLETE |
+| 02-core-redirect-flow | 1 | 10 min | ~10 min | IN PROGRESS |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (15 min), 01-02 (20 min)
+- Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min)
 - Trend: consistent
 
 ## Accumulated Context
@@ -50,7 +51,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-- None — Phase 1 complete, awaiting Phase 2 plan creation
+- None — Plan 02-01 complete; ready for Plan 02-02 (result screen)
 
 ### Blockers/Concerns
 
@@ -59,6 +60,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Phase 1 complete — human verified plan 01-02 (launch speed, visual design, navigation)
-Resume file: .planning/phases/01-foundation/01-02-SUMMARY.md
-Next: Begin Phase 2 — Craving Input & Navigation
+Stopped at: Plan 02-01 complete — craving data layer and selection grid built, TypeScript clean
+Resume file: .planning/phases/02-core-redirect-flow/02-01-SUMMARY.md
+Next: Plan 02-02 — result screen (reads cravingId param, displays need + 2 suggestions)
