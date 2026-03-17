@@ -16,6 +16,12 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => router.push('/history')}
+        style={{ position: 'absolute', top: 64, right: 24, zIndex: 10 }}
+      >
+        <Text style={{ color: '#444444', fontSize: 13 }}>History</Text>
+      </TouchableOpacity>
       <StatusBar hidden />
       <Text style={styles.headline}>What are you{'\n'}craving?</Text>
       <Text style={styles.subtitle}>Tap one — we'll find the real need behind it</Text>
