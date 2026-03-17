@@ -10,7 +10,7 @@ None
 
 ## Phases
 
-- [ ] **Phase 1: Foundation & App Shell** - Expo project, navigation, storage infrastructure, instant-launch shell
+- [x] **Phase 1: Foundation & App Shell** - Expo project, navigation, storage infrastructure, instant-launch shell
 - [ ] **Phase 2: Core Redirect Flow** - Craving selection → need identification → actionable suggestion
 - [ ] **Phase 3: Feedback & Persistence** - One-tap feedback, SQLite event logging, persistent history
 - [ ] **Phase 4: Pattern Learning & Visualization** - Adaptive suggestions, pattern views, "what helped"
@@ -78,7 +78,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
-| 1. Foundation & App Shell | 0/TBD | Not started | - |
+| 1. Foundation & App Shell | 2/2 | Complete | 2026-03-17 |
 | 2. Core Redirect Flow | 0/TBD | Not started | - |
 | 3. Feedback & Persistence | 0/TBD | Not started | - |
 | 4. Pattern Learning & Visualization | 0/TBD | Not started | - |

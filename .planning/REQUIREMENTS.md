@@ -9,7 +9,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Core Redirect Flow
 
-- [ ] **FLOW-01**: User can launch app and reach craving input in under 2 seconds with zero setup on first use
+- [x] **FLOW-01**: User can launch app and reach craving input in under 2 seconds with zero setup on first use
 - [ ] **FLOW-02**: User can select a craving from a tap-based list of ~10-15 common ADHD cravings without typing
 - [ ] **FLOW-03**: App translates selected craving to an underlying need using default mappings (~20-30 common patterns)
 - [ ] **FLOW-04**: User sees the identified real need with 1-2 concrete actionable suggestions
@@ -68,7 +68,7 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FLOW-01 | Phase 1 | Pending |
+| FLOW-01 | Phase 1 | Complete |
 | FLOW-02 | Phase 2 | Pending |
 | FLOW-03 | Phase 2 | Pending |
 | FLOW-04 | Phase 2 | Pending |
