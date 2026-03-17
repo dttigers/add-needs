@@ -24,7 +24,7 @@ export default function HomeScreen() {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => router.push('/history')}
-        style={{ position: 'absolute', top: 64, right: 72, zIndex: 10 }}
+        style={{ position: 'absolute', top: 64, left: 24, zIndex: 10 }}
       >
         <Text style={{ color: '#444444', fontSize: 13 }}>History</Text>
       </TouchableOpacity>
