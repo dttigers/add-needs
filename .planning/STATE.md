@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 2 of 5 (Craving Input & Navigation)
-Plan: 02-02 — checkpoint (human verification)
-Status: Result screen built (Task 1 committed); awaiting human verification of full end-to-end flow
-Last activity: 2026-03-17 — Plan 02-02 Task 1 executed and committed (558cdd5)
+Plan: 02-02 — COMPLETE
+Status: Full craving → need flow built and human-verified; THC craving added at user request; Phase 2 complete
+Last activity: 2026-03-17 — Plan 02-02 complete (62aab7f — THC craving addition)
 
-Progress: ███████░░░ ~60%
+Progress: ████████░░ ~80%
 
 ## Performance Metrics
 
@@ -28,7 +28,7 @@ Progress: ███████░░░ ~60%
 | Phase | Plans | Total | Avg/Plan | Status |
 |-------|-------|-------|----------|--------|
 | 01-foundation | 2 | 35 min | ~18 min | COMPLETE |
-| 02-core-redirect-flow | 2 | ~25 min | ~13 min | IN PROGRESS (checkpoint) |
+| 02-core-redirect-flow | 2 | ~30 min | ~15 min | COMPLETE |
 
 **Recent Trend:**
 - Last 5 plans: 01-01 (15 min), 01-02 (20 min), 02-01 (10 min), 02-02 (~15 min)
@@ -48,10 +48,11 @@ Recent decisions affecting current work:
 - **createMMKV (not new MMKV):** react-native-mmkv v3 changed API from class to factory; use `createMMKV({ id })` pattern
 - **Zero async on mount:** Home screen renders synchronously; no loading states or data fetches at launch
 - **Storage schemas deferred:** src/storage/ wires connections only; table/key definitions are Phase 3's job
+- **THC craving (13th entry):** Added post-verification at user request; maps to "Anxiety relief or boredom" with 4-7-8 breathing + environment change suggestions
 
 ### Pending Todos
 
-- Human verification of full craving → result → Done flow (Plan 02-02 checkpoint)
+None — Phase 2 complete.
 
 ### Blockers/Concerns
 
@@ -60,6 +61,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 02-02 checkpoint — result screen built and committed; awaiting human verification
+Stopped at: Plan 02-02 complete — full craving-to-need flow built, verified, THC craving added
 Resume file: .planning/phases/02-core-redirect-flow/02-02-SUMMARY.md
-Next: Human verify full end-to-end flow, then Plan 02-02 complete → Phase 3
+Next: Phase 3 — history/persistence (log each craving → need lookup for later review)
