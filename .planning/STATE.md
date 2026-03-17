@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 
 ## Current Position
 
-Phase: 4 of 5 (Polish & Delight)
-Plan: 04-01 — COMPLETE
-Status: All 3 tasks complete; human verify approved with change applied
-Last activity: 2026-03-17 — Plan 04-01 complete; History nav balanced to left side
+Phase: 5 of 5 (Customization & Polish)
+Plan: 05-01 — COMPLETE
+Status: All 2 tasks complete; custom mappings storage wired into home + result screens
+Last activity: 2026-03-17 — Plan 05-01 complete; custom_mappings SQLite table + CRUD + home/result integration
 
-Progress: ██████████ 100% (Phase 3) → starting Phase 4
+Progress: ██████████ 100% (Phase 4) → Phase 5 in progress (05-01 done)
 
 ## Performance Metrics
 
@@ -57,10 +57,12 @@ Recent decisions affecting current work:
 - **Absolute overlay for secondary nav:** Secondary navigation links (e.g., "History") use `position: absolute` to avoid disrupting existing layout flow
 - **DimensionValue cast for bar fills:** Template-literal percentage strings (`\`${n}%\``) must be typed/cast as `DimensionValue` under strict TypeScript in React Native
 - **Balanced absolute nav:** History at `left: 24`, Stats at `right: 24` — mirrors left/right for visual symmetry on home screen
+- **Custom mapping id as string:** Custom craving IDs stored/compared as `String(m.id)` to match expo-router string params
+- **`as never` cast for future routes:** Use `router.push('/manage' as never)` when screen file not yet created; cast resolves naturally once file exists
 
 ### Pending Todos
 
-- Begin next plan in Phase 4 (04-02)
+- Begin next plan in Phase 5 (05-02: Manage screen)
 
 ### Blockers/Concerns
 
@@ -69,6 +71,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 04-01 complete (all 3 tasks done, human verify approved)
-Resume file: .planning/phases/04-pattern-learning/04-01-SUMMARY.md
-Next: Begin plan 04-02
+Stopped at: Plan 05-01 complete (all 2 tasks done, no checkpoint required)
+Resume file: .planning/phases/05-customization-polish/05-01-SUMMARY.md
+Next: Begin plan 05-02 (Manage screen)
