@@ -32,32 +32,33 @@ key-files:
 
 key-decisions:
   - "DimensionValue cast: template-literal percentage strings require `as DimensionValue` under strict TypeScript"
-  - "Stats nav link at right:24, History shifted to right:72 to keep both visible on home screen"
+  - "History link moved to left:24, Stats remains at right:24 — balanced absolute overlay nav on home screen"
 
 patterns-established:
   - "Percentage bar fills: compute as `\`${n}%\` as DimensionValue` to satisfy strict TS"
+  - "Balanced absolute nav: History at left:24, Stats at right:24 for visual symmetry"
 
 # Metrics
-duration: ~15min
+duration: ~25min
 completed: 2026-03-17
 ---
 
 # Phase 04-01: Pattern Learning Summary
 
-**Analytics query layer (getTopCravings + getFeedbackStats) and Stats screen with horizontal frequency and help-rate bar charts wired to home screen navigation**
+**Analytics query layer (getTopCravings + getFeedbackStats) and Stats screen with horizontal frequency and help-rate bar charts, with balanced home screen nav (History left, Stats right)**
 
 ## Performance
 
-- **Duration:** ~15 min
+- **Duration:** ~25 min
 - **Started:** 2026-03-17
-- **Completed:** 2026-03-17 (human verify pending)
-- **Tasks:** 2/3 complete (checkpoint reached at Task 3)
+- **Completed:** 2026-03-17
+- **Tasks:** 3/3 complete
 - **Files modified:** 4
 
 ## Accomplishments
 - Added `getTopCravings(limit)` and `getFeedbackStats()` to events.ts — zero-async, strict-typed
 - Built `app/stats.tsx` with "TOP CRAVINGS" frequency bars and "WHAT HELPED" help-rate bars following history.tsx conventions
-- Registered `stats` route in `_layout.tsx`; added Stats + History absolute nav links on home screen
+- Registered `stats` route in `_layout.tsx`; History moved to left side of home screen, Stats on right — balanced nav layout
 
 ## Task Commits
 
@@ -65,17 +66,17 @@ Each task was committed atomically:
 
 1. **Task 1: Add analytics query functions to events.ts** - `c86f05b` (feat)
 2. **Task 2: Build Stats screen and wire navigation** - `9f55370` (feat)
-3. **Task 3: Human verify Stats screen** - awaiting user verification
+3. **Task 3: Human verify Stats screen (change request applied)** - `31c0d98` (fix)
 
 ## Files Created/Modified
 - `src/storage/events.ts` - Added TopCraving/FeedbackStat interfaces + getTopCravings + getFeedbackStats
 - `app/stats.tsx` - New Stats screen with two bar-chart sections
 - `app/_layout.tsx` - Registered stats screen in Stack
-- `app/index.tsx` - Added Stats nav link at right:24; History shifted to right:72
+- `app/index.tsx` - Added Stats nav link at right:24; History moved to left:24 (balanced layout)
 
 ## Decisions Made
 - `DimensionValue` cast required for percentage-width strings in inline React Native styles under strict TypeScript
-- Stats link placed closer to edge (right:24); History shifted outward (right:72) to avoid overlap
+- History link moved to left:24 (user-requested at checkpoint) for visual balance with Stats at right:24
 
 ## Deviations from Plan
 
@@ -91,8 +92,8 @@ Each task was committed atomically:
 
 ---
 
-**Total deviations:** 1 auto-fixed (TypeScript strict type cast)
-**Impact on plan:** Minimal — type-only fix, no behavior change.
+**Total deviations:** 2 (1 auto-fixed TypeScript cast, 1 user-requested layout change at checkpoint)
+**Impact on plan:** Both minor. Type cast is correctness-only; layout change improves UX balance. No scope creep.
 
 ## Issues Encountered
 - TypeScript strict mode rejected percentage strings as `DimensionValue`. Fixed by importing the type and casting both bar-fill width sites.
@@ -101,8 +102,9 @@ Each task was committed atomically:
 None — no external service configuration required.
 
 ## Next Phase Readiness
-- Stats screen built and registered; ready for human visual verification
-- After approval: Phase 4 plan 01 complete; Phase 4 plan 02 (if any) or Phase 5 can begin
+- DATA-03 (top craving frequency visualization) and DATA-04 (per-craving help rate) delivered
+- Stats screen accessible via balanced home screen nav
+- Phase 4 plan 02 or Phase 5 can begin
 
 ---
 *Phase: 04-pattern-learning*

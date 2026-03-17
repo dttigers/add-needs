@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 ## Current Position
 
 Phase: 4 of 5 (Polish & Delight)
-Plan: 04-01 — CHECKPOINT (awaiting human verify)
-Status: Tasks 1-2 complete; stopped at Task 3 checkpoint:human-verify
-Last activity: 2026-03-17 — Plan 04-01 Tasks 1+2 committed; human verify pending
+Plan: 04-01 — COMPLETE
+Status: All 3 tasks complete; human verify approved with change applied
+Last activity: 2026-03-17 — Plan 04-01 complete; History nav balanced to left side
 
 Progress: ██████████ 100% (Phase 3) → starting Phase 4
 
@@ -56,10 +56,11 @@ Recent decisions affecting current work:
 - **ListRenderItem typed renderItem:** Use `ListRenderItem<T>` type for FlatList renderItem to avoid inline `any` under strict TS
 - **Absolute overlay for secondary nav:** Secondary navigation links (e.g., "History") use `position: absolute` to avoid disrupting existing layout flow
 - **DimensionValue cast for bar fills:** Template-literal percentage strings (`\`${n}%\``) must be typed/cast as `DimensionValue` under strict TypeScript in React Native
+- **Balanced absolute nav:** History at `left: 24`, Stats at `right: 24` — mirrors left/right for visual symmetry on home screen
 
 ### Pending Todos
 
-- Human verify Stats screen (04-01 Task 3 checkpoint) then mark plan complete
+- Begin next plan in Phase 4 (04-02)
 
 ### Blockers/Concerns
 
@@ -68,6 +69,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-17
-Stopped at: Plan 04-01 Task 3 checkpoint:human-verify (Stats screen visual verification)
+Stopped at: Plan 04-01 complete (all 3 tasks done, human verify approved)
 Resume file: .planning/phases/04-pattern-learning/04-01-SUMMARY.md
-Next: User approves Stats screen → mark 04-01 complete → begin next plan
+Next: Begin plan 04-02
