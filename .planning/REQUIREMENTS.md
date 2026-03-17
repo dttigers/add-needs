@@ -14,15 +14,15 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FLOW-03**: App translates selected craving to an underlying need using default mappings (~20-30 common patterns)
 - [x] **FLOW-04**: User sees the identified real need with 1-2 concrete actionable suggestions
 - [x] **FLOW-05**: Full interaction (open → craving → need → done) completes in under 10 seconds
-- [ ] **FLOW-06**: After seeing result, user can give one-tap feedback ("did that help?" yes/no/skip)
+- [x] **FLOW-06**: After seeing result, user can give one-tap feedback ("did that help?" yes/no/skip)
 - [ ] **FLOW-07**: User can add custom craving-to-need mappings
 - [ ] **FLOW-08**: User can edit existing craving-to-need mappings
 - [ ] **FLOW-09**: User can delete custom craving-to-need mappings
 
 ### Data & Persistence
 
-- [ ] **DATA-01**: All user data persists locally on device across app closes and restarts
-- [ ] **DATA-02**: User can view chronological history of past craving redirects with timestamps
+- [x] **DATA-01**: All user data persists locally on device across app closes and restarts
+- [x] **DATA-02**: User can view chronological history of past craving redirects with timestamps
 - [ ] **DATA-03**: User can see pattern visualization of top cravings over a time period
 - [ ] **DATA-04**: User can see what suggestions actually helped most often
 - [ ] **DATA-05**: App adjusts mapping suggestions based on accumulated user feedback
@@ -69,20 +69,20 @@ Which phases cover which requirements. Updated by create-roadmap.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FLOW-01 | Phase 1 | Complete |
-| FLOW-02 | Phase 2 | Pending |
-| FLOW-03 | Phase 2 | Pending |
-| FLOW-04 | Phase 2 | Pending |
-| FLOW-05 | Phase 2 | Pending |
-| FLOW-06 | Phase 3 | Pending |
+| FLOW-02 | Phase 2 | Complete |
+| FLOW-03 | Phase 2 | Complete |
+| FLOW-04 | Phase 2 | Complete |
+| FLOW-05 | Phase 2 | Complete |
+| FLOW-06 | Phase 3 | Complete |
 | FLOW-07 | Phase 5 | Pending |
 | FLOW-08 | Phase 5 | Pending |
 | FLOW-09 | Phase 5 | Pending |
-| DATA-01 | Phase 3 | Pending |
-| DATA-02 | Phase 3 | Pending |
+| DATA-01 | Phase 3 | Complete |
+| DATA-02 | Phase 3 | Complete |
 | DATA-03 | Phase 4 | Pending |
 | DATA-04 | Phase 4 | Pending |
 | DATA-05 | Phase 4 | Pending |
-| UX-01 | Phase 2 | Pending |
+| UX-01 | Phase 2 | Complete |
 | UX-02 | Phase 5 | Pending |
 
 **Coverage:**
