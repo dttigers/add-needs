@@ -1,12 +1,23 @@
+import { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { CRAVINGS, MAPPINGS } from '../src/data/mappings';
+import { logEvent, setFeedback } from '../src/storage/events';
 
 export default function ResultScreen() {
   const { cravingId } = useLocalSearchParams<{ cravingId: string }>();
 
   const craving = CRAVINGS.find(c => c.id === cravingId);
   const result = cravingId ? MAPPINGS[cravingId] : undefined;
+
+  const [eventId, setEventId] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (craving && result && cravingId) {
+      const id = logEvent(cravingId, craving.label, result.need);
+      setEventId(id);
+    }
+  }, []);
 
   if (!cravingId || !craving || !result) {
     return (
@@ -64,19 +75,32 @@ export default function ResultScreen() {
           ))}
         </View>
 
-        {/* Done button */}
-        <TouchableOpacity
-          onPress={() => router.replace('/')}
-          style={{
-            backgroundColor: '#6366f1',
-            borderRadius: 12,
-            paddingVertical: 16,
-            alignItems: 'center',
-            marginTop: 32,
-          }}
-        >
-          <Text style={{ color: '#ffffff', fontSize: 18, fontWeight: '700' }}>Done</Text>
-        </TouchableOpacity>
+        {/* Feedback section */}
+        <View style={{ marginTop: 32 }}>
+          <Text style={{ color: '#666666', fontSize: 13, fontWeight: '500', textTransform: 'uppercase', letterSpacing: 1, textAlign: 'center', marginBottom: 16 }}>
+            Did that help?
+          </Text>
+          <View style={{ flexDirection: 'row', gap: 10 }}>
+            <TouchableOpacity
+              style={{ flex: 1, backgroundColor: '#6366f1', borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
+              onPress={() => { if (eventId !== null) setFeedback(eventId, 'yes'); router.replace('/'); }}
+            >
+              <Text style={{ color: '#ffffff', fontSize: 16, fontWeight: '700' }}>✓ Yes</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ flex: 1, backgroundColor: '#1a1a1a', borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
+              onPress={() => { if (eventId !== null) setFeedback(eventId, 'no'); router.replace('/'); }}
+            >
+              <Text style={{ color: '#ff6b6b', fontSize: 16, fontWeight: '700' }}>✗ No</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{ flex: 1, backgroundColor: '#1a1a1a', borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
+              onPress={() => { if (eventId !== null) setFeedback(eventId, 'skip'); router.replace('/'); }}
+            >
+              <Text style={{ color: '#666666', fontSize: 16, fontWeight: '600' }}>Skip</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );
