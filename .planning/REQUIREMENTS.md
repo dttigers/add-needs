@@ -68,27 +68,27 @@ Which phases cover which requirements. Updated by create-roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FLOW-01 | — | Pending |
-| FLOW-02 | — | Pending |
-| FLOW-03 | — | Pending |
-| FLOW-04 | — | Pending |
-| FLOW-05 | — | Pending |
-| FLOW-06 | — | Pending |
-| FLOW-07 | — | Pending |
-| FLOW-08 | — | Pending |
-| FLOW-09 | — | Pending |
-| DATA-01 | — | Pending |
-| DATA-02 | — | Pending |
-| DATA-03 | — | Pending |
-| DATA-04 | — | Pending |
-| DATA-05 | — | Pending |
-| UX-01 | — | Pending |
-| UX-02 | — | Pending |
+| FLOW-01 | Phase 1 | Pending |
+| FLOW-02 | Phase 2 | Pending |
+| FLOW-03 | Phase 2 | Pending |
+| FLOW-04 | Phase 2 | Pending |
+| FLOW-05 | Phase 2 | Pending |
+| FLOW-06 | Phase 3 | Pending |
+| FLOW-07 | Phase 5 | Pending |
+| FLOW-08 | Phase 5 | Pending |
+| FLOW-09 | Phase 5 | Pending |
+| DATA-01 | Phase 3 | Pending |
+| DATA-02 | Phase 3 | Pending |
+| DATA-03 | Phase 4 | Pending |
+| DATA-04 | Phase 4 | Pending |
+| DATA-05 | Phase 4 | Pending |
+| UX-01 | Phase 2 | Pending |
+| UX-02 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 16 total
-- Mapped to phases: 0
-- Unmapped: 16 ⚠️
+- Mapped to phases: 16
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-17*
