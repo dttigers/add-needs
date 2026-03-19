@@ -6,7 +6,8 @@ export interface RedirectEvent {
   craving_label: string;
   need_name: string;
   timestamp: number; // Unix ms (Date.now())
-  feedback: 'yes' | 'no' | 'skip' | null;
+  feedback: 'yes' | 'no' | 'skip' | 'other' | null;
+  chosen_suggestion: string | null;
 }
 
 db.runSync(
@@ -20,6 +21,13 @@ db.runSync(
   )`
 );
 
+// Migration: add chosen_suggestion column (safe to re-run)
+try {
+  db.runSync('ALTER TABLE redirect_events ADD COLUMN chosen_suggestion TEXT');
+} catch (_) {
+  // Column already exists — ignore
+}
+
 export function logEvent(cravingId: string, cravingLabel: string, needName: string): number {
   const result = db.runSync(
     'INSERT INTO redirect_events (craving_id, craving_label, need_name, timestamp, feedback) VALUES (?, ?, ?, ?, NULL)',
@@ -28,8 +36,15 @@ export function logEvent(cravingId: string, cravingLabel: string, needName: stri
   return Number(result.lastInsertRowId);
 }
 
-export function setFeedback(eventId: number, feedback: 'yes' | 'no' | 'skip'): void {
+export function setFeedback(eventId: number, feedback: 'yes' | 'no' | 'skip' | 'other'): void {
   db.runSync('UPDATE redirect_events SET feedback = ? WHERE id = ?', [feedback, eventId]);
+}
+
+export function setChosenSuggestion(eventId: number, suggestion: string): void {
+  db.runSync(
+    'UPDATE redirect_events SET chosen_suggestion = ?, feedback = ? WHERE id = ?',
+    [suggestion, 'yes', eventId]
+  );
 }
 
 export function getHistory(): RedirectEvent[] {
@@ -91,4 +106,20 @@ export function getCravingFeedbackSummary(cravingId: string): CravingFeedbackSum
     [cravingId]
   );
   return rows[0] ?? { yes: 0, no: 0, skip: 0, total: 0 };
+}
+
+export interface SuggestionStat {
+  suggestion: string;
+  count: number;
+}
+
+export function getSuggestionStats(cravingId: string): SuggestionStat[] {
+  return db.getAllSync<SuggestionStat>(
+    `SELECT chosen_suggestion AS suggestion, COUNT(*) AS count
+    FROM redirect_events
+    WHERE craving_id = ? AND chosen_suggestion IS NOT NULL
+    GROUP BY chosen_suggestion
+    ORDER BY count DESC`,
+    [cravingId]
+  );
 }
