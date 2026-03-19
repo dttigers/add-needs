@@ -13,8 +13,10 @@ None
 - [x] **Phase 1: Foundation & App Shell** - Expo project, navigation, storage infrastructure, instant-launch shell
 - [x] **Phase 2: Core Redirect Flow** - Craving selection → need identification → actionable suggestion
 - [x] **Phase 3: Feedback & Persistence** - One-tap feedback, SQLite event logging, persistent history
-- [ ] **Phase 4: Pattern Learning & Visualization** - Adaptive suggestions, pattern views, "what helped"
-- [ ] **Phase 5: Customization & Polish** - Manual mapping CRUD, dark mode, UX refinement
+- [x] **Phase 4: Pattern Learning & Visualization** - Adaptive suggestions, pattern views, "what helped"
+- [x] **Phase 5: Customization & Polish** - Manual mapping CRUD, dark mode, UX refinement
+- [ ] **Phase 6: Adaptive Suggestions** - Feedback-driven suggestion reordering (DATA-05 gap closure)
+- [ ] **Phase 7: Integration Fixes & Cleanup** - useFocusEffect wiring, custom emoji lookup, dead code removal
 
 ## Phase Details
 
@@ -71,15 +73,37 @@ Plans:
 Plans:
 - [ ] 05-01: TBD
 
+### Phase 6: Adaptive Suggestions
+**Goal**: App adjusts mapping suggestions based on accumulated user feedback — reorder/weight suggestions by historical help rate so the most effective need surfaces first
+**Depends on**: Phase 3 (feedback data), Phase 4 (stats queries)
+**Requirements**: DATA-05
+**Gap Closure**: Closes DATA-05 from v1-MILESTONE-AUDIT.md (Plan 04-02 was never executed)
+**Research**: Unlikely (feedback aggregation + reordering logic)
+**Plans:** 1 plan
+
+Plans:
+- [ ] 06-01-PLAN.md — Add getCravingFeedbackSummary query + adaptive note UI on result screen
+
+### Phase 7: Integration Fixes & Cleanup
+**Goal**: Fix cross-phase wiring issues — custom mappings refresh on home screen focus, custom emoji displays correctly in History/Stats, all list screens use useFocusEffect, remove dead MMKV code
+**Depends on**: Phase 5 (custom mappings), Phase 3 (history/stats screens)
+**Requirements**: (integration/flow fixes, no new requirements)
+**Gap Closure**: Closes 3 integration issues + 1 broken flow from v1-MILESTONE-AUDIT.md
+
+Plans:
+- [ ] 07-01: TBD
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|---------------|--------|-----------|
 | 1. Foundation & App Shell | 2/2 | Complete | 2026-03-17 |
 | 2. Core Redirect Flow | 2/2 | Complete | 2026-03-17 |
 | 3. Feedback & Persistence | 2/2 | Complete | 2026-03-17 |
-| 4. Pattern Learning & Visualization | 0/TBD | Not started | - |
-| 5. Customization & Polish | 0/TBD | Not started | - |
+| 4. Pattern Learning & Visualization | 2/2 | Complete | 2026-03-17 |
+| 5. Customization & Polish | 3/3 | Complete | 2026-03-18 |
+| 6. Adaptive Suggestions | 0/1 | Pending | — |
+| 7. Integration Fixes & Cleanup | 0/1 | Pending | — |
