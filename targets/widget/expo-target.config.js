@@ -3,10 +3,10 @@ module.exports = (config) => ({
   type: "widget",
   name: "QuickLaunch",
   frameworks: ["SwiftUI"],
-  deploymentTarget: "16.0",
+  deploymentTarget: "17.0",
   colors: {
     $accent: { color: "#4A90D9" },
-    $widgetBackground: {
+    $widgetBg: {
       light: "#FFFFFF",
       dark: "#1C1C1E",
     },

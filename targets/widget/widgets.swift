@@ -55,7 +55,7 @@ struct QuickLaunchWidgetView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding()
-        .containerBackground(Color("WidgetBackground"), for: .widget)
+        .containerBackground(Color("WidgetBg"), for: .widget)
         .widgetURL(URL(string: "adhdneeds://"))
     }
 
