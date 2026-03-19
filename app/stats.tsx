@@ -1,8 +1,9 @@
 import { View, Text, ScrollView, TouchableOpacity, StatusBar, DimensionValue } from 'react-native';
-import { router } from 'expo-router';
-import { useState, useEffect } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useState, useCallback } from 'react';
 import { getTopCravings, getFeedbackStats, TopCraving, FeedbackStat } from '../src/storage/events';
 import { CRAVINGS } from '../src/data/mappings';
+import { getCustomMappings } from '../src/storage/customMappings';
 import { useThemeColors } from '../src/theme';
 
 export default function StatsScreen() {
@@ -10,11 +11,14 @@ export default function StatsScreen() {
   const [topCravings, setTopCravings] = useState<TopCraving[]>([]);
   const [feedbackStats, setFeedbackStats] = useState<FeedbackStat[]>([]);
 
-  useEffect(() => {
-    setTopCravings(getTopCravings(10));
-    setFeedbackStats(getFeedbackStats());
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      setTopCravings(getTopCravings(10));
+      setFeedbackStats(getFeedbackStats());
+    }, [])
+  );
 
+  const customMappings = getCustomMappings();
   const maxCount = topCravings[0]?.count ?? 1;
   const filteredFeedback = feedbackStats.filter(
     (s) => s.total >= 1 && (s.yes > 0 || s.no > 0)
@@ -46,7 +50,8 @@ export default function StatsScreen() {
           </Text>
           {topCravings.map((item) => {
             const cravingEntry = CRAVINGS.find((c) => c.id === item.craving_id);
-            const emoji = cravingEntry?.emoji ?? '❓';
+            const customEntry = !cravingEntry ? customMappings.find(m => String(m.id) === item.craving_id) : null;
+            const emoji = cravingEntry?.emoji ?? customEntry?.emoji ?? '❓';
             const barWidth: DimensionValue = `${Math.round((item.count / maxCount) * 100)}%`;
             return (
               <View key={item.craving_id} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
@@ -70,7 +75,8 @@ export default function StatsScreen() {
               </Text>
               {filteredFeedback.map((stat) => {
                 const cravingEntry = CRAVINGS.find((c) => c.id === stat.craving_id);
-                const emoji = cravingEntry?.emoji ?? '❓';
+                const customEntry = !cravingEntry ? customMappings.find(m => String(m.id) === stat.craving_id) : null;
+                const emoji = cravingEntry?.emoji ?? customEntry?.emoji ?? '❓';
                 const yesRate = stat.total > 0 ? Math.round((stat.yes / stat.total) * 100) : 0;
                 const barColor = yesRate >= 50 ? '#22c55e' : colors.destructive;
                 return (

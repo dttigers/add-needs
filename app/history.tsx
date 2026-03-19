@@ -1,8 +1,9 @@
 import { View, Text, FlatList, TouchableOpacity, StatusBar, ListRenderItem } from 'react-native';
-import { router } from 'expo-router';
-import { useState, useEffect } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useState, useCallback } from 'react';
 import { getHistory, RedirectEvent } from '../src/storage/events';
 import { CRAVINGS } from '../src/data/mappings';
+import { getCustomMappings } from '../src/storage/customMappings';
 import { useThemeColors, ThemeColors } from '../src/theme';
 
 function relativeTime(timestamp: number): string {
@@ -27,13 +28,16 @@ export default function HistoryScreen() {
   const colors = useThemeColors();
   const [events, setEvents] = useState<RedirectEvent[]>([]);
 
-  useEffect(() => {
-    setEvents(getHistory());
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      setEvents(getHistory());
+    }, [])
+  );
 
   const renderItem: ListRenderItem<RedirectEvent> = ({ item }) => {
     const cravingEntry = CRAVINGS.find(c => c.id === item.craving_id);
-    const emoji = cravingEntry?.emoji ?? '❓';
+    const customEntry = !cravingEntry ? getCustomMappings().find(m => String(m.id) === item.craving_id) : null;
+    const emoji = cravingEntry?.emoji ?? customEntry?.emoji ?? '❓';
     const badge = feedbackBadge(item.feedback, colors);
     return (
       <View style={{ backgroundColor: colors.surface, borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center' }}>

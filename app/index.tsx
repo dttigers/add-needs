@@ -1,18 +1,24 @@
 import { View, Text, FlatList, TouchableOpacity, StatusBar, StyleSheet } from 'react-native';
-import { router } from 'expo-router';
+import { router, useFocusEffect } from 'expo-router';
+import { useState, useCallback } from 'react';
 import { CRAVINGS, CravingItem } from '../src/data/mappings';
 import { getCustomMappings } from '../src/storage/customMappings';
 import { useThemeColors } from '../src/theme';
 
 export default function HomeScreen() {
   const colors = useThemeColors();
+  const [allCravings, setAllCravings] = useState<CravingItem[]>(CRAVINGS);
 
-  const customCravings: CravingItem[] = getCustomMappings().map(m => ({
-    id: String(m.id),
-    label: m.label,
-    emoji: m.emoji,
-  }));
-  const allCravings = [...CRAVINGS, ...customCravings];
+  useFocusEffect(
+    useCallback(() => {
+      const customCravings: CravingItem[] = getCustomMappings().map(m => ({
+        id: String(m.id),
+        label: m.label,
+        emoji: m.emoji,
+      }));
+      setAllCravings([...CRAVINGS, ...customCravings]);
+    }, [])
+  );
 
   const renderItem = ({ item }: { item: CravingItem }) => (
     <TouchableOpacity
