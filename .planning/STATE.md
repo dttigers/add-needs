@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** In-the-moment clarity — translate misdirected ADHD cravings into the real underlying need, fast enough to act on before the impulse wins.
-**Current focus:** Planning next milestone
+**Current focus:** v1.1 Quick Launch Widget — iOS lock screen/home screen widget
 
 ## Current Position
 
-Phase: 7 of 7 (v1.0 complete)
-Plan: N/A
+Phase: 8 of 8 (iOS Widget)
+Plan: Not started
 Status: Ready to plan
-Last activity: 2026-03-19 — v1.0 MVP milestone complete
+Last activity: 2026-03-19 - Milestone v1.1 Quick Launch Widget created
 
-Progress: ██████████ 100% (v1.0: 7 of 7 phases complete)
+Progress: ░░░░░░░░░░ 0% (v1.1: 0 of 1 phases complete)
 
 ## Performance Metrics
 
@@ -47,11 +47,14 @@ None — v1.0 complete.
 
 ### Blockers/Concerns
 
-- `create-expo-app` rejects directory names with spaces — if re-scaffolding is ever needed, use a temp directory and rsync
+None
+
+### Roadmap Evolution
+
+- Milestone v1.1 created: iOS Quick Launch Widget, 1 phase (Phase 8)
 
 ## Session Continuity
 
 Last session: 2026-03-19
-Stopped at: v1.0 MVP milestone complete
+Stopped at: Milestone v1.1 initialization
 Resume file: None
-Next: Plan v1.1 milestone (`/gsd:discuss-milestone`)
