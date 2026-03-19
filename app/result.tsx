@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { CRAVINGS, MAPPINGS } from '../src/data/mappings';
-import { logEvent, setFeedback } from '../src/storage/events';
+import { logEvent, setFeedback, getCravingFeedbackSummary } from '../src/storage/events';
 import { getCustomMappings } from '../src/storage/customMappings';
 import { useThemeColors } from '../src/theme';
 
@@ -26,11 +26,20 @@ export default function ResultScreen() {
     : undefined;
 
   const [eventId, setEventId] = useState<number | null>(null);
+  const [adaptiveNote, setAdaptiveNote] = useState<string | null>(null);
 
   useEffect(() => {
     if (craving && result && cravingId) {
       const id = logEvent(cravingId, craving.label, result.need);
       setEventId(id);
+
+      const summary = getCravingFeedbackSummary(cravingId);
+      const ratedTotal = summary.yes + summary.no;
+      if (ratedTotal >= 3 && (summary.yes / ratedTotal) >= 0.6) {
+        setAdaptiveNote('This suggestion has helped you before — give it a try!');
+      } else if (ratedTotal >= 5 && (summary.yes / ratedTotal) < 0.3) {
+        setAdaptiveNote('This one hasn\'t clicked yet — maybe try something different after.');
+      }
     }
   }, []);
 
@@ -89,6 +98,18 @@ export default function ResultScreen() {
             </View>
           ))}
         </View>
+
+        {/* Adaptive note */}
+        {adaptiveNote && (
+          <View style={{ marginTop: 20, backgroundColor: colors.surface, borderRadius: 12, padding: 16, borderLeftWidth: 3, borderLeftColor: colors.accent }}>
+            <Text style={{ color: colors.textMuted, fontSize: 11, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6 }}>
+              Based on your history
+            </Text>
+            <Text style={{ color: colors.textSecondary, fontSize: 15, lineHeight: 21 }}>
+              {adaptiveNote}
+            </Text>
+          </View>
+        )}
 
         {/* Feedback section */}
         <View style={{ marginTop: 32 }}>
