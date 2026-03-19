@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-03-17)
 
 **Core value:** In-the-moment clarity — translate misdirected ADHD cravings into the real underlying need, fast enough to act on before the impulse wins.
-**Current focus:** Phase 6 — Adaptive Suggestions (gap closure)
+**Current focus:** All phases complete
 
 ## Current Position
 
-Phase: 6 of 7 (Adaptive Suggestions) — COMPLETE
-Plan: 1 of 1 in phase 06
-Status: Phase 06 complete
-Last activity: 2026-03-19 — Completed 06-01-PLAN.md (adaptive feedback notes)
+Phase: 7 of 7 (Integration Fixes & Cleanup) — COMPLETE
+Plan: 1 of 1 in phase 07
+Status: All phases complete
+Last activity: 2026-03-19 — Completed 07-01-PLAN.md (integration fixes & cleanup)
 
-Progress: ████████░░ 86% (6 of 7 phases complete)
+Progress: ██████████ 100% (7 of 7 phases complete)
 
 ## Performance Metrics
 
@@ -61,10 +61,12 @@ Recent decisions affecting current work:
 - **`as never` cast for future routes:** Use `router.push('/manage' as never)` when screen file not yet created; cast resolves naturally once file exists
 - **useFocusEffect for manage screen:** Use useFocusEffect (not useEffect) to re-fetch custom mappings on every screen visit — ensures list is fresh after returning from add-mapping
 - **Single screen for add + edit:** add-mapping.tsx handles both modes via presence of `id` param; pre-fills from route params in edit mode
+- **useFocusEffect on all data screens:** home, history, stats all use useFocusEffect to refresh on navigation return
+- **Custom emoji fallback chain:** CRAVINGS.find() -> getCustomMappings().find() -> '?' default
 
 ### Pending Todos
 
-- Phase 7: Integration Fixes & Cleanup (last phase remaining)
+None -- all phases complete.
 
 ### Blockers/Concerns
 
@@ -73,6 +75,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-03-19
-Stopped at: Completed 06-01-PLAN.md — adaptive feedback notes; Phase 06 complete
+Stopped at: Completed 07-01-PLAN.md — integration fixes & cleanup; all phases complete
 Resume file: None
-Next: Phase 7 — Integration Fixes & Cleanup
+Next: Milestone complete
