@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StatusBar, ScrollView } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { CRAVINGS, MAPPINGS } from '../src/data/mappings';
-import { logEvent, setFeedback, getCravingFeedbackSummary } from '../src/storage/events';
+import { logEvent, setFeedback, setChosenSuggestion, getCravingFeedbackSummary } from '../src/storage/events';
 import { getCustomMappings } from '../src/storage/customMappings';
 import { useThemeColors } from '../src/theme';
 
@@ -84,19 +84,37 @@ export default function ResultScreen() {
         {/* Suggestions section */}
         <View style={{ marginTop: 32 }}>
           <Text style={{ color: colors.textMuted, fontSize: 13, fontWeight: '500', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 12 }}>
-            Try this
+            What will you try?
           </Text>
           {result.suggestions.map((suggestion, index) => (
-            <View
+            <TouchableOpacity
               key={index}
-              style={{ backgroundColor: colors.surface, borderRadius: 12, padding: 16, marginBottom: 10 }}
+              activeOpacity={0.7}
+              onPress={() => {
+                if (eventId !== null) setChosenSuggestion(eventId, suggestion);
+                router.replace('/');
+              }}
+              style={{ backgroundColor: colors.surface, borderRadius: 12, padding: 16, marginBottom: 10, flexDirection: 'row', alignItems: 'center' }}
             >
-              <Text style={{ color: colors.textSecondary, fontSize: 16, lineHeight: 22 }}>
+              <Text style={{ color: colors.textSecondary, fontSize: 16, lineHeight: 22, flex: 1 }}>
                 <Text style={{ color: colors.accent }}>{index + 1}. </Text>
                 {suggestion}
               </Text>
-            </View>
+              <Text style={{ color: colors.textMuted, fontSize: 16, marginLeft: 8 }}>›</Text>
+            </TouchableOpacity>
           ))}
+
+          {/* Other option */}
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => {
+              if (eventId !== null) setFeedback(eventId, 'other');
+              router.replace('/');
+            }}
+            style={{ backgroundColor: colors.surface, borderRadius: 12, padding: 14, marginTop: 4, alignItems: 'center' }}
+          >
+            <Text style={{ color: colors.textMuted, fontSize: 15, fontWeight: '500' }}>Other / none of these</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Adaptive note */}
@@ -111,32 +129,6 @@ export default function ResultScreen() {
           </View>
         )}
 
-        {/* Feedback section */}
-        <View style={{ marginTop: 32 }}>
-          <Text style={{ color: colors.textMuted, fontSize: 13, fontWeight: '500', textTransform: 'uppercase', letterSpacing: 1, textAlign: 'center', marginBottom: 16 }}>
-            Did that help?
-          </Text>
-          <View style={{ flexDirection: 'row', gap: 10 }}>
-            <TouchableOpacity
-              style={{ flex: 1, backgroundColor: colors.accent, borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
-              onPress={() => { if (eventId !== null) setFeedback(eventId, 'yes'); router.replace('/'); }}
-            >
-              <Text style={{ color: colors.text, fontSize: 16, fontWeight: '700' }}>✓ Yes</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ flex: 1, backgroundColor: colors.surface, borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
-              onPress={() => { if (eventId !== null) setFeedback(eventId, 'no'); router.replace('/'); }}
-            >
-              <Text style={{ color: colors.destructive, fontSize: 16, fontWeight: '700' }}>✗ No</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ flex: 1, backgroundColor: colors.surface, borderRadius: 12, paddingVertical: 14, alignItems: 'center' }}
-              onPress={() => { if (eventId !== null) setFeedback(eventId, 'skip'); router.replace('/'); }}
-            >
-              <Text style={{ color: colors.textMuted, fontSize: 16, fontWeight: '600' }}>Skip</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
       </ScrollView>
     </View>
   );
