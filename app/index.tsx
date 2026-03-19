@@ -2,8 +2,11 @@ import { View, Text, FlatList, TouchableOpacity, StatusBar, StyleSheet } from 'r
 import { router } from 'expo-router';
 import { CRAVINGS, CravingItem } from '../src/data/mappings';
 import { getCustomMappings } from '../src/storage/customMappings';
+import { useThemeColors } from '../src/theme';
 
 export default function HomeScreen() {
+  const colors = useThemeColors();
+
   const customCravings: CravingItem[] = getCustomMappings().map(m => ({
     id: String(m.id),
     label: m.label,
@@ -13,37 +16,37 @@ export default function HomeScreen() {
 
   const renderItem = ({ item }: { item: CravingItem }) => (
     <TouchableOpacity
-      style={styles.tile}
+      style={[styles.tile, { backgroundColor: colors.surface }]}
       activeOpacity={0.7}
       onPress={() => router.push({ pathname: '/result', params: { cravingId: item.id } })}
     >
       <Text style={styles.tileEmoji}>{item.emoji}</Text>
-      <Text style={styles.tileLabel}>{item.label}</Text>
+      <Text style={[styles.tileLabel, { color: colors.textSecondary }]}>{item.label}</Text>
     </TouchableOpacity>
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <TouchableOpacity
         onPress={() => router.push('/stats')}
         style={{ position: 'absolute', top: 64, right: 24, zIndex: 10 }}
       >
-        <Text style={{ color: '#444444', fontSize: 13 }}>Stats</Text>
+        <Text style={{ color: colors.navText, fontSize: 13 }}>Stats</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => router.push('/history')}
         style={{ position: 'absolute', top: 64, left: 24, zIndex: 10 }}
       >
-        <Text style={{ color: '#444444', fontSize: 13 }}>History</Text>
+        <Text style={{ color: colors.navText, fontSize: 13 }}>History</Text>
       </TouchableOpacity>
       <StatusBar hidden />
-      <Text style={styles.headline}>What are you{'\n'}craving?</Text>
-      <Text style={styles.subtitle}>Tap one — we'll find the real need behind it</Text>
+      <Text style={[styles.headline, { color: colors.text }]}>What are you{'\n'}craving?</Text>
+      <Text style={[styles.subtitle, { color: colors.textMuted }]}>Tap one — we'll find the real need behind it</Text>
       <TouchableOpacity
         onPress={() => router.push('/manage' as never)}
         style={{ position: 'absolute', bottom: 32, right: 24, zIndex: 10 }}
       >
-        <Text style={{ color: '#444444', fontSize: 13 }}>Manage</Text>
+        <Text style={{ color: colors.navText, fontSize: 13 }}>Manage</Text>
       </TouchableOpacity>
       <FlatList
         data={allCravings}
@@ -61,12 +64,10 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0a0a0a',
   },
   headline: {
     fontSize: 36,
     fontWeight: '700',
-    color: '#ffffff',
     textAlign: 'center',
     marginTop: 64,
     marginBottom: 8,
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    color: '#666666',
     textAlign: 'center',
     marginBottom: 24,
     paddingHorizontal: 24,
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
   tile: {
     flex: 1,
     height: 90,
-    backgroundColor: '#1a1a1a',
     borderRadius: 12,
     padding: 12,
     justifyContent: 'flex-start',
@@ -104,7 +103,6 @@ const styles = StyleSheet.create({
   },
   tileLabel: {
     fontSize: 13,
-    color: '#cccccc',
     fontWeight: '500',
   },
 });

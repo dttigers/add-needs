@@ -11,8 +11,11 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { addCustomMapping, updateCustomMapping } from '../src/storage/customMappings';
+import { useThemeColors } from '../src/theme';
 
 export default function AddMappingScreen() {
+  const colors = useThemeColors();
+
   const params = useLocalSearchParams<{
     id?: string;
     label?: string;
@@ -53,16 +56,16 @@ export default function AddMappingScreen() {
   };
 
   const inputStyle = {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: colors.surface,
     borderRadius: 12,
     padding: 14,
-    color: '#ffffff',
+    color: colors.text,
     fontSize: 16,
     marginBottom: 20,
   } as const;
 
   const labelStyle = {
-    color: '#666666',
+    color: colors.textMuted,
     fontSize: 12,
     textTransform: 'uppercase' as const,
     marginBottom: 6,
@@ -71,16 +74,16 @@ export default function AddMappingScreen() {
 
   return (
     <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: '#0a0a0a' }}
+      style={{ flex: 1, backgroundColor: colors.background }}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <StatusBar hidden />
       {/* Header */}
       <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 60, paddingHorizontal: 24, paddingBottom: 20 }}>
         <TouchableOpacity onPress={() => router.back()} style={{ marginRight: 16 }}>
-          <Text style={{ color: '#6366f1', fontSize: 16 }}>← Back</Text>
+          <Text style={{ color: colors.accent, fontSize: 16 }}>← Back</Text>
         </TouchableOpacity>
-        <Text style={{ color: '#ffffff', fontSize: 24, fontWeight: '700' }}>
+        <Text style={{ color: colors.text, fontSize: 24, fontWeight: '700' }}>
           {isEdit ? 'Edit Mapping' : 'Add Mapping'}
         </Text>
       </View>
@@ -96,7 +99,7 @@ export default function AddMappingScreen() {
           onChangeText={setEmoji}
           maxLength={2}
           placeholder="😤"
-          placeholderTextColor="#444444"
+          placeholderTextColor={colors.textMuted}
         />
 
         {/* Label */}
@@ -106,7 +109,7 @@ export default function AddMappingScreen() {
           value={label}
           onChangeText={setLabel}
           placeholder="e.g. Comfort snacking"
-          placeholderTextColor="#444444"
+          placeholderTextColor={colors.textMuted}
         />
 
         {/* Need */}
@@ -116,7 +119,7 @@ export default function AddMappingScreen() {
           value={need}
           onChangeText={setNeed}
           placeholder="e.g. Emotional soothing"
-          placeholderTextColor="#444444"
+          placeholderTextColor={colors.textMuted}
         />
 
         {/* Suggestion 1 */}
@@ -126,7 +129,7 @@ export default function AddMappingScreen() {
           value={suggestion1}
           onChangeText={setSuggestion1}
           placeholder="e.g. Hold something warm"
-          placeholderTextColor="#444444"
+          placeholderTextColor={colors.textMuted}
         />
 
         {/* Suggestion 2 */}
@@ -136,12 +139,12 @@ export default function AddMappingScreen() {
           value={suggestion2}
           onChangeText={setSuggestion2}
           placeholder="e.g. Write down what you're feeling"
-          placeholderTextColor="#444444"
+          placeholderTextColor={colors.textMuted}
         />
 
         {/* Inline error */}
         {error ? (
-          <Text style={{ color: '#ff6b6b', fontSize: 14, marginBottom: 16, textAlign: 'center' }}>
+          <Text style={{ color: colors.destructive, fontSize: 14, marginBottom: 16, textAlign: 'center' }}>
             {error}
           </Text>
         ) : null}
@@ -150,13 +153,13 @@ export default function AddMappingScreen() {
         <TouchableOpacity
           onPress={handleSave}
           style={{
-            backgroundColor: '#6366f1',
+            backgroundColor: colors.accent,
             borderRadius: 12,
             paddingVertical: 16,
             alignItems: 'center',
           }}
         >
-          <Text style={{ color: '#ffffff', fontSize: 16, fontWeight: '700' }}>Save</Text>
+          <Text style={{ color: colors.text, fontSize: 16, fontWeight: '700' }}>Save</Text>
         </TouchableOpacity>
       </ScrollView>
     </KeyboardAvoidingView>
