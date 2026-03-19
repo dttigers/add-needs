@@ -11,7 +11,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.jameson.adhdneeds",
-      "appleTeamId": "REPLACE_ME",
+      "appleTeamId": "5H57ADQS8G",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
