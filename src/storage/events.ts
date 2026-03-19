@@ -71,3 +71,24 @@ export function getFeedbackStats(): FeedbackStat[] {
     []
   );
 }
+
+export interface CravingFeedbackSummary {
+  yes: number;
+  no: number;
+  skip: number;
+  total: number;
+}
+
+export function getCravingFeedbackSummary(cravingId: string): CravingFeedbackSummary {
+  const rows = db.getAllSync<CravingFeedbackSummary>(
+    `SELECT
+      SUM(CASE WHEN feedback = 'yes' THEN 1 ELSE 0 END) as yes,
+      SUM(CASE WHEN feedback = 'no' THEN 1 ELSE 0 END) as no,
+      SUM(CASE WHEN feedback = 'skip' THEN 1 ELSE 0 END) as skip,
+      COUNT(*) as total
+    FROM redirect_events
+    WHERE craving_id = ?`,
+    [cravingId]
+  );
+  return rows[0] ?? { yes: 0, no: 0, skip: 0, total: 0 };
+}
