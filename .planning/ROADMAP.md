@@ -15,7 +15,7 @@ None
 - [x] **Phase 3: Feedback & Persistence** - One-tap feedback, SQLite event logging, persistent history
 - [x] **Phase 4: Pattern Learning & Visualization** - Adaptive suggestions, pattern views, "what helped"
 - [x] **Phase 5: Customization & Polish** - Manual mapping CRUD, dark mode, UX refinement
-- [ ] **Phase 6: Adaptive Suggestions** - Feedback-driven suggestion reordering (DATA-05 gap closure)
+- [x] **Phase 6: Adaptive Suggestions** - Feedback-driven suggestion reordering (DATA-05 gap closure)
 - [ ] **Phase 7: Integration Fixes & Cleanup** - useFocusEffect wiring, custom emoji lookup, dead code removal
 
 ## Phase Details
@@ -82,7 +82,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 06-01-PLAN.md — Add getCravingFeedbackSummary query + adaptive note UI on result screen
+- [x] 06-01-PLAN.md — Add getCravingFeedbackSummary query + adaptive note UI on result screen
 
 ### Phase 7: Integration Fixes & Cleanup
 **Goal**: Fix cross-phase wiring issues — custom mappings refresh on home screen focus, custom emoji displays correctly in History/Stats, all list screens use useFocusEffect, remove dead MMKV code
@@ -105,5 +105,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7
 | 3. Feedback & Persistence | 2/2 | Complete | 2026-03-17 |
 | 4. Pattern Learning & Visualization | 2/2 | Complete | 2026-03-17 |
 | 5. Customization & Polish | 3/3 | Complete | 2026-03-18 |
-| 6. Adaptive Suggestions | 0/1 | Pending | — |
+| 6. Adaptive Suggestions | 1/1 | Complete | 2026-03-19 |
 | 7. Integration Fixes & Cleanup | 0/1 | Pending | — |
