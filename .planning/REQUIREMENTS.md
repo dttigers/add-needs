@@ -15,9 +15,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **FLOW-04**: User sees the identified real need with 1-2 concrete actionable suggestions
 - [x] **FLOW-05**: Full interaction (open → craving → need → done) completes in under 10 seconds
 - [x] **FLOW-06**: After seeing result, user can give one-tap feedback ("did that help?" yes/no/skip)
-- [ ] **FLOW-07**: User can add custom craving-to-need mappings
-- [ ] **FLOW-08**: User can edit existing craving-to-need mappings
-- [ ] **FLOW-09**: User can delete custom craving-to-need mappings
+- [x] **FLOW-07**: User can add custom craving-to-need mappings
+- [x] **FLOW-08**: User can edit existing craving-to-need mappings
+- [x] **FLOW-09**: User can delete custom craving-to-need mappings
 
 ### Data & Persistence
 
@@ -30,7 +30,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Onboarding & UX
 
 - [x] **UX-01**: First-time user understands the concept (craving ≠ real need) through minimal inline guidance without blocking first use
-- [ ] **UX-02**: App supports dark mode via system theme detection
+- [x] **UX-02**: App supports dark mode via system theme detection
 
 ## v2 Requirements
 
@@ -74,16 +74,16 @@ Which phases cover which requirements. Updated by create-roadmap.
 | FLOW-04 | Phase 2 | Complete |
 | FLOW-05 | Phase 2 | Complete |
 | FLOW-06 | Phase 3 | Complete |
-| FLOW-07 | Phase 5 | Pending |
-| FLOW-08 | Phase 5 | Pending |
-| FLOW-09 | Phase 5 | Pending |
+| FLOW-07 | Phase 5 | Complete |
+| FLOW-08 | Phase 5 | Complete |
+| FLOW-09 | Phase 5 | Complete |
 | DATA-01 | Phase 3 | Complete |
 | DATA-02 | Phase 3 | Complete |
 | DATA-03 | Phase 4 | Pending |
 | DATA-04 | Phase 4 | Pending |
 | DATA-05 | Phase 4 | Pending |
 | UX-01 | Phase 2 | Complete |
-| UX-02 | Phase 5 | Pending |
+| UX-02 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 16 total
