@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DATA-02**: User can view chronological history of past craving redirects with timestamps
 - [ ] **DATA-03**: User can see pattern visualization of top cravings over a time period
 - [ ] **DATA-04**: User can see what suggestions actually helped most often
-- [ ] **DATA-05**: App adjusts mapping suggestions based on accumulated user feedback
+- [x] **DATA-05**: App adjusts mapping suggestions based on accumulated user feedback
 
 ### Onboarding & UX
 
@@ -81,7 +81,7 @@ Which phases cover which requirements. Updated by create-roadmap.
 | DATA-02 | Phase 3 | Complete |
 | DATA-03 | Phase 4 | Pending |
 | DATA-04 | Phase 4 | Pending |
-| DATA-05 | Phase 4 | Pending |
+| DATA-05 | Phase 6 | Complete |
 | UX-01 | Phase 2 | Complete |
 | UX-02 | Phase 5 | Complete |
 
