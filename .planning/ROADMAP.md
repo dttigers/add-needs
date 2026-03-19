@@ -42,7 +42,7 @@ None
 **Plans**: 1
 
 Plans:
-- [ ] 08-01: Tappable suggestions + storage update
+- [x] 08-01: Tappable suggestions + storage update
 
 #### Phase 9: iOS Widget
 
@@ -65,5 +65,5 @@ Plans:
 | 5. Customization & Polish | v1.0 | 3/3 | Complete | 2026-03-18 |
 | 6. Adaptive Suggestions | v1.0 | 1/1 | Complete | 2026-03-19 |
 | 7. Integration Fixes & Cleanup | v1.0 | 1/1 | Complete | 2026-03-19 |
-| 8. Suggestion Selection | v1.1 | 0/1 | Not started | - |
+| 8. Suggestion Selection | v1.1 | 1/1 | Complete | 2026-03-19 |
 | 9. iOS Widget | v1.1 | 0/1 | Not started | - |
