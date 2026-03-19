@@ -11,7 +11,7 @@ None
 ## Milestones
 
 - ✅ **v1.0 MVP** — Phases 1-7 (shipped 2026-03-19)
-- 🚧 **v1.1 Quick Launch Widget** — Phase 8 (in progress)
+- 🚧 **v1.1 Suggestion Selection + Quick Launch Widget** — Phases 8-9 (in progress)
 
 ## Completed Milestones
 
@@ -30,20 +30,29 @@ None
 
 </details>
 
-### 🚧 v1.1 Quick Launch Widget (In Progress)
+### 🚧 v1.1 Suggestion Selection + Quick Launch Widget (In Progress)
 
-**Milestone Goal:** Reduce friction to zero — one tap from iOS lock screen or home screen widget to craving input, eliminating the app-finding step entirely.
+**Milestone Goal:** Better feedback loop via tappable suggestions, then reduce friction to zero with an iOS widget.
 
-#### Phase 8: iOS Widget
+#### Phase 8: Suggestion Selection
 
-**Goal**: Build and configure an Expo-compatible iOS widget (lock screen + home screen) that deep-links to the app's craving selection screen
+**Goal**: Make suggestions tappable on result screen so users indicate which suggestion they'll try, plus an "Other" option — richer feedback data per craving
 **Depends on**: v1.0 complete
-**Research**: Likely (new WidgetKit/Swift integration with Expo toolchain)
-**Research topics**: expo-apple-targets or similar config plugin, WidgetKit basics for launch-only widget, deep linking from widget to app home screen
-**Plans**: TBD
+**Research**: No (pure internal UI + schema change)
+**Plans**: 1
 
 Plans:
-- [ ] 08-01: TBD (run /gsd:plan-phase 8 to break down)
+- [ ] 08-01: Tappable suggestions + storage update
+
+#### Phase 9: iOS Widget
+
+**Goal**: Build and configure an Expo-compatible iOS widget (lock screen + home screen) that deep-links to the app's craving selection screen
+**Depends on**: Phase 8 complete
+**Research**: Done (using @bacons/apple-targets v4.x with WidgetKit)
+**Plans**: 1
+
+Plans:
+- [ ] 09-01: iOS Quick Launch Widget
 
 ## Progress
 
@@ -56,4 +65,5 @@ Plans:
 | 5. Customization & Polish | v1.0 | 3/3 | Complete | 2026-03-18 |
 | 6. Adaptive Suggestions | v1.0 | 1/1 | Complete | 2026-03-19 |
 | 7. Integration Fixes & Cleanup | v1.0 | 1/1 | Complete | 2026-03-19 |
-| 8. iOS Widget | v1.1 | 0/? | Not started | - |
+| 8. Suggestion Selection | v1.1 | 0/1 | Not started | - |
+| 9. iOS Widget | v1.1 | 0/1 | Not started | - |
