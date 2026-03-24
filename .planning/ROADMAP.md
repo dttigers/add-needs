@@ -11,11 +11,12 @@ None
 ## Milestones
 
 - ✅ **v1.0 MVP** — Phases 1-7 (shipped 2026-03-19)
-- 🚧 **v1.1 Suggestion Selection + Quick Launch Widget** — Phases 8-9 (in progress)
+- ✅ **v1.1 Suggestion Selection + Quick Launch Widget** — Phases 8-9 (shipped 2026-03-24)
 
 ## Completed Milestones
 
 - ✅ [v1.0 MVP](milestones/v1.0-ROADMAP.md) (Phases 1-7) — SHIPPED 2026-03-19
+- ✅ [v1.1 Suggestion Selection + Quick Launch Widget](milestones/v1.1-ROADMAP.md) (Phases 8-9) — SHIPPED 2026-03-24
 
 <details>
 <summary>✅ v1.0 MVP (Phases 1-7) — SHIPPED 2026-03-19</summary>
@@ -30,29 +31,13 @@ None
 
 </details>
 
-### 🚧 v1.1 Suggestion Selection + Quick Launch Widget (In Progress)
+<details>
+<summary>✅ v1.1 Suggestion Selection + Quick Launch Widget (Phases 8-9) — SHIPPED 2026-03-24</summary>
 
-**Milestone Goal:** Better feedback loop via tappable suggestions, then reduce friction to zero with an iOS widget.
+- [x] Phase 8: Suggestion Selection (1/1 plan) — completed 2026-03-19
+- [x] Phase 9: iOS Widget (1/1 plan) — completed 2026-03-24
 
-#### Phase 8: Suggestion Selection
-
-**Goal**: Make suggestions tappable on result screen so users indicate which suggestion they'll try, plus an "Other" option — richer feedback data per craving
-**Depends on**: v1.0 complete
-**Research**: No (pure internal UI + schema change)
-**Plans**: 1
-
-Plans:
-- [x] 08-01: Tappable suggestions + storage update
-
-#### Phase 9: iOS Widget
-
-**Goal**: Build and configure an Expo-compatible iOS widget (lock screen + home screen) that deep-links to the app's craving selection screen
-**Depends on**: Phase 8 complete
-**Research**: Done (using @bacons/apple-targets v4.x with WidgetKit)
-**Plans**: 1
-
-Plans:
-- [ ] 09-01: iOS Quick Launch Widget
+</details>
 
 ## Progress
 
@@ -66,4 +51,8 @@ Plans:
 | 6. Adaptive Suggestions | v1.0 | 1/1 | Complete | 2026-03-19 |
 | 7. Integration Fixes & Cleanup | v1.0 | 1/1 | Complete | 2026-03-19 |
 | 8. Suggestion Selection | v1.1 | 1/1 | Complete | 2026-03-19 |
-| 9. iOS Widget | v1.1 | 0/1 | Not started | - |
+| 9. iOS Widget | v1.1 | 1/1 | Complete | 2026-03-24 |
+
+## What's Next
+
+No phases planned yet. Use `/gsd:discuss-milestone` to define v1.2 scope.

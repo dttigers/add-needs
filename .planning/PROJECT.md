@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A mobile app that helps people with ADHD recognize what they actually need when their brain sends misleading cravings or urges. Tap a craving, see the real underlying need with actionable suggestions, track what actually helps, and build custom mappings over time — all in under 10 seconds from launch.
+A mobile app that helps people with ADHD recognize what they actually need when their brain sends misleading cravings or urges. Tap a craving, see the real underlying need with tappable actionable suggestions, track what actually helps, and build custom mappings over time — all in under 10 seconds from launch. Includes an iOS widget for zero-friction access from home screen or lock screen.
 
 ## Core Value
 
@@ -18,10 +18,12 @@ In-the-moment clarity: translate misdirected ADHD cravings into the real underly
 - ✓ Manual mapping — users can add, edit, and delete custom craving→need connections — v1.0
 - ✓ Pattern tracking — top cravings frequency, per-craving help-rate stats with bar charts — v1.0
 - ✓ Mobile-first phone app — Expo/React Native, instant launch, one-handed, minimal friction — v1.0
+- ✓ Tappable suggestion selection — per-suggestion feedback replaces binary yes/no/skip — v1.1
+- ✓ iOS widget — home screen + lock screen quick launch via WidgetKit — v1.1
 
 ### Active
 
-(None — all v1.0 requirements validated. Next milestone will define new requirements.)
+(None — all v1.1 requirements validated. Next milestone will define new requirements.)
 
 ### Out of Scope
 
@@ -33,9 +35,10 @@ In-the-moment clarity: translate misdirected ADHD cravings into the real underly
 
 ## Context
 
-Shipped v1.0 with 1,027 LOC TypeScript across 73 files.
-Tech stack: Expo (React Native), expo-router (Stack navigation), expo-sqlite (sync), TypeScript strict mode.
+Shipped v1.1 with 1,223 LOC TypeScript/Swift across ~80 files.
+Tech stack: Expo (React Native), expo-router (Stack navigation), expo-sqlite (sync), TypeScript strict mode, @bacons/apple-targets (WidgetKit), SwiftUI (widget).
 All data stored locally on device via SQLite. No accounts, no cloud, no async on launch.
+iOS widget provides zero-friction launch from home screen and lock screen via adhdneeds:// deep-link.
 Builder (Jameson) has ADHD and is the primary user — direct lived experience informs design decisions.
 
 ## Constraints
@@ -61,6 +64,10 @@ Builder (Jameson) has ADHD and is the primary user — direct lived experience i
 | useFocusEffect on all data screens | Reliable data refresh on navigation return | ✓ Good |
 | Single screen for add + edit mappings | Reduces code duplication; id param drives mode | ✓ Good |
 | System-aware dark/light theme | Respects user preference via useColorScheme() | ✓ Good |
+| Per-suggestion feedback replaces yes/no/skip | Richer data; one tap instead of two steps | ✓ Good |
+| No App Groups for widget | Launch-only widget doesn't need shared data | ✓ Good |
+| Static widget timeline (.never refresh) | Widget is a launcher, no dynamic content needed | ✓ Good |
+| @bacons/apple-targets for widget | First-class Expo plugin for native targets; avoids manual Xcode config | ✓ Good |
 
 ---
-*Last updated: 2026-03-19 after v1.0 milestone*
+*Last updated: 2026-03-24 after v1.1 milestone*
