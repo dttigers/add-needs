@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Background -->
+  <rect width="1024" height="1024" rx="224" fill="#3C3489"/>
+
+  <!-- Brain left lobe -->
+  <ellipse cx="324" cy="430" rx="154" ry="128" fill="white" opacity="0.88"/>
+  <!-- Brain right lobe -->
+  <ellipse cx="444" cy="430" rx="120" ry="128" fill="white" opacity="0.88"/>
+  <!-- Underside mask -->
+  <ellipse cx="384" cy="504" rx="103" ry="60" fill="#3C3489"/>
+  <!-- Center split -->
+  <line x1="384" y1="308" x2="384" y2="530" stroke="#3C3489" stroke-width="13"/>
+
+  <!-- Chaos squiggle emerging right -->
+  <path d="M530 400 Q578 342 626 400 Q674 458 722 400 Q752 362 784 400" stroke="#F09995" stroke-width="26" fill="none" stroke-linecap="round"/>
+
+  <!-- Calm lines below -->
+  <line x1="530" y1="520" x2="942" y2="520" stroke="#5DCAA5" stroke-width="26" stroke-linecap="round"/>
+  <line x1="530" y1="598" x2="942" y2="598" stroke="#5DCAA5" stroke-width="26" stroke-linecap="round"/>
+  <line x1="530" y1="676" x2="788" y2="676" stroke="#5DCAA5" stroke-width="26" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Signal arcs from brain top -->
+  <path d="M510 360 Q558 290 510 220" stroke="#FAC775" stroke-width="20" fill="none" stroke-linecap="round" opacity="0.82"/>
+  <path d="M548 375 Q610 282 548 188" stroke="#FAC775" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.48"/>
+</svg>
